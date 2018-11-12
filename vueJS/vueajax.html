@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+    <!--如果是ajax请求需要引入axios.js-->
+    <script src="js/axios-0.18.0.js"></script>
+</head>
+<body>
+
+  <!--也就是说vue的ajax就是axios.getxxx.then(funcxxx).catch(funcxxx)-->
+
+axios.get('/user?ID=12345')
+    .then(function(response){
+        console.log(response);
+}).catch(function(err){
+    console.log(err);
+});
+//以上请求也可以通过这种方式来发送
+axios.get('/user',{
+    <!--我感觉还是这种方式比较好-->
+    params:{
+        ID:12345
+    }
+}).then(function(response){
+    console.log(response);
+}).catch(function(err){
+    console.log(err);
+});
+
+
+axios.post('/user',{
+    <!--你看post的这种方式就比较好 参数就在这里-->
+    firstName:'Fred',
+    lastName:'Flintstone'
+}).then(function(res){
+    console.log(res);
+}).catch(function(err){
+console.log(err);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="app">
+    id：{{user.id}}<br>
+    age:{{user.age}}<br>
+    username:{{user.username}}<br>
+    password:{{user.password}}<br>
+    email:{{user.email}}<br>
+    sex:{{user.sex}}
+    <br>
+    <input type="button" value="查询用户信息" @click="getUser()">
+    {{username}}
+    <br>
+    <input type="button" value="发送post数据" @click="sendUser()">
+</div>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            user:{
+                id:1,
+                age:10,
+                username:"张三1",
+                password:"123",
+                email:"zhangsan@itcast.cn",
+                sex:"男"
+            },
+            username:""
+        },
+        methods:{
+            getUser:function () {
+
+                //这里说是我们用——this持有了this，也就是我们改了——this那么vue对象也就改了
+
+                //必须这样才可以呢 你直接用this是不行的。
+                var _this = this;
+                axios.get("/user/3")
+                    .then(function (response) {
+                        console.log(response);
+                        //取返回的数据
+                        result = response.data;
+                        _this.user = response.data;
+                        //_this.user.id = result.id;
+                        //_this.username = result.username;
+                    })
+                    .catch(function (reason) {
+                        console.log(reason)
+                    })
+            },
+            sendUser:function () {
+                //持有this引用
+                var _this = this;
+                //使用vue做post请求
+                axios.post("/user/update", this.user)
+                    .then(function (response) {
+                        alert(response.data);
+                    })
+                    .catch(function (reason) {
+                        console.log(reason)
+                    })
+            }
+        }
+    });
+</script>
+</body>
+</html>
