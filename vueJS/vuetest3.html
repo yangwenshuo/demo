@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+</head>
+<body>
+<div id="app">
+    用户名：<input type="text" v-model="username"><br>
+    密码：<input type="text" v-model="password"><br>
+    <input type="button" value="显示变量的值" @click="showInfo()"><br>
+    你输入的用户名是：{{username}}
+    <br>
+    你输入的密码是：{{password}}<br>
+    输出id列表：
+    <ul>
+        <!--这是遍历一个数组，可以取数组中的内容还可以取下标-->
+        <li v-for="(id,index) in ids">{{id}},{{index}}</li>
+    </ul>
+    <br>
+    输出用户列表：
+    <table border="1">
+        <tr>
+            <th>用户id</th>
+            <th>用户名</th>
+            <th>密码</th>
+        </tr>
+
+        <!--这样遍历一个集合，然后用插值表达式来取集合中的内容-->
+        <tr v-for="user in userList">
+            <td>{{user.id}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.password}}</td>
+        </tr>
+    </table>
+    <hr>
+    <div>
+
+        <!--v-if和v-show都可以完成根据vue对象里的数据是true和false来控制-->
+        <!--是否显示内容，不同的就是v-if是直接让元素消失或存在，v-show是让改变元素的display的属性-->
+        <span v-if="flag">传智播客</span><br>
+        <span v-show="flag">黑马程序员</span><br>
+        <button @click="changeShow()">点击切换</button>
+    </div>
+</div>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            username:"",
+            password:"",
+            ids:[1,2,3,4,5,6,7],
+            userList:[
+                {id:1,username:"张三1",password:"123"},
+                {id:2,username:"张三2",password:"123"},
+                {id:3,username:"张三3",password:"123"},
+                {id:4,username:"张三4",password:"123"},
+                {id:5,username:"张三5",password:"123"}
+            ],
+            flag:true
+        },
+        methods:{
+            showInfo:function () {
+                alert("用户名：" + this.username + "|密码：" + this.password);
+            },
+            changeShow:function () {
+                this.flag = !this.flag;
+            }
+        }
+    });
+</script>
+</body>
+</html>

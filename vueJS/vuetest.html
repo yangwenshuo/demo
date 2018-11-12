@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>vuetest</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+</head>
+<body>
+
+    <!--div的id引入vue对象表示了这片区域vue对象接管了-->
+
+    <!--vuejs是view和model绑定的东西，像是angularjs的升级版-->
+    <div id="testid">
+    <!--在这里引用下面的类就可以用里面的东西了 用id引用就可以-->
+
+        <!--这种大括号形式的是插值绑定，这种可以把vue对象的内容显示到页面上-->
+        {{yangguo}}<br>
+        {{xiexun}}<br>
+        {{2+1}}<br>
+        {{1>2?"yangguo":"qiaofeng"}}<br>
+        <!--这里看到可以调用data里面的用name找出value，还可以弄表达式，不能是语句-->
+
+        <!--注意这里是v-on  但是长长的v-on:click 可以用@click替换  -->
+        <button @click="onclik()">点我啊</button>
+
+        <!--但是注意像上面那样@xxx的只是事件类的可以那样用v-model v-bind v-html这种不能-->
+        <input type="text" v-on:keydown="onkeydown($event)"></input>
+        <!--而且v-on：keydown可以被@keydown替换，要是指定是回车键的话还可以@keydown.enter 其他键也都可以-->
+
+
+        <hr />
+        可以看到v-bind:value=xxx 可以简写为：value=xxx
+        <input type="text" :value="niefeng"></input>
+        <input type="text" v-on:click="changeinput()" v-bind:value="niefeng"></input>
+
+    </div>
+    <script>
+
+        new Vue({
+            el:"#testid", //注意el设置名字这里要用#开头
+            data:{
+                yangguo:"玄铁重剑", //这个好像是定义了一个类，这里是类要用到的
+                                    //成员变量，而下面是类要用到的方法
+                xiexun:"屠龙刀",
+
+                niefeng:""
+            },
+            methods:{     //看到了吗，这里定义方法的时候也是用的json格式
+
+                //前面是方法的名字，后面是方法的内容
+                onclik:function () {
+                    alert("点我作甚");
+                },
+                onkeydown:function (event) {
+                    alert(event.keyCode);  //每一个键盘上的键都会对应一个数值，enter是13
+                },
+                changeinput:function () {
+
+
+                    //在这里用this修改vue对象的内容，上面用v-bind：value绑定
+                    this.niefeng="雪饮刀";
+                }
+            }
+        });
+    </script>
+</body>
+
+
+</html>

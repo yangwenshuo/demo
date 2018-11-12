@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-model="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+</head>
+<body>
+
+    可以看到vue.js的核心语法是v-xx：xxx=我们下面对象的内容。
+    v-xx指定是属于哪个大类，是事件啊还是绑定啊还是啥的，而后面的xxx指示是大类中的
+    哪一个小类，而后面就是绑定到哪个东西上。
+
+    v-bind和v-model的功能是不一样的，angualrjs里数据和模型绑定了，一个变另一个肯定会变
+    但是vue里，想要让input里的内容跟着数据变就用v-bind，想让数据的内容跟着input里面的变
+    就用v-model。
+
+    <div id="vuetest">
+        <!--注意这个事件修饰符要用的时候 也是要在被修饰的div里面-->
+
+        <form @submit.prevent action="www.baidu.com" method="post">
+            <input type="submit"></input>
+        </form>
+
+        <div>
+            <textarea @mouseover="onmouseover($event)">这是一个文本域</textarea>
+        </div>
+
+        横坐标：{{x}}
+        纵坐标:{{y}}
+    </div>
+
+
+    <div id="vuetest2">
+        <!--区别过于明显不用看了-->
+        <div v-text="yangguo"></div>
+        <div v-html="yangguo"></div>
+    </div>
+
+    <div id="vuetest3">
+
+        <input type="text" v-model:value="yangguo"></input>
+        <button @click="show()">点啊</button>
+
+    </div>
+
+
+    <script>
+        new Vue({
+            el:"#vuetest",
+            data:{
+                yangguo:"玄铁重剑",
+                x:0,
+                y:0
+            },
+            methods:{
+
+                //你看，在keydown的事件对象里就可以获取刀keycode
+                //而在mouseoveer事件里就可以获取刀x和y坐标，人家都给设计好了啊
+
+                onmouseover:function (event) {
+                    this.x=event.x;
+                    this.y=event.y;
+                }
+            }
+        });
+
+        new Vue({
+            el:"#vuetest2",
+            data:{
+                yangguo:"<h1>啦啦啦</h1>",
+
+            }
+        });
+
+
+
+        new Vue({
+            el:"#vuetest3",
+            data:{
+                yangguo:"玄铁重剑"
+            },
+            methods:{
+                show:function () {
+                    alert(this.yangguo);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
