@@ -22,6 +22,12 @@ public class XuShuiChi {
             for(int j = i+1; j<intarr.length;j++){
                 if(intarr[j]>temp2){
                     temp2 = intarr[j];
+
+
+
+                    //test
+
+
                     righthigh = j;
                 }
             }
