@@ -8,7 +8,7 @@ public class DuiPaiXu {
 		//堆得时间是n，但是比小太多，忽略了。
 		int[] chi = { 2, 44, 5, 65, 7, 12, 53, 19, 9, 10, 22, 4 };
 		int len = chi.length;
-		// 将这个数组搞成堆的样子
+		// 将这个数组搞成堆的样子             注意这里是个循环.
 		for (int i = 0; i < len / 2 - 1; i++) {
 			gaoChengDui(chi, i, len);
 		}
