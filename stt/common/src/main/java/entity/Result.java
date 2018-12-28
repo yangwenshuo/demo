@@ -5,6 +5,8 @@ package entity;
  */
 public class Result {
 
+    //test
+
 
     private boolean flag;//是否成功
     private Integer code;// 返回码
