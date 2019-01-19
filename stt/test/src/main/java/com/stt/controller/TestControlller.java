@@ -1,5 +1,6 @@
 package com.stt.controller;
 
+import com.config.Cat;
 import com.stt.model.User;
 import com.stt.service.UserService;
 import org.slf4j.Logger;
@@ -19,6 +20,10 @@ public class TestControlller {
 
     @Autowired
     private UserService userService;
+
+
+    @Autowired
+    private Cat cat;
 
     //读取配置文件中的内容 这个和properties还是不一样的
     //@Value("${yangguo}")
@@ -44,6 +49,15 @@ public class TestControlller {
         //response.setStatus(500);
 
         return "添加成功";
+    }
+
+
+
+    @RequestMapping("/config")
+    public String config(){
+
+        cat.method();
+        return "猫叫了啊";
     }
 
 

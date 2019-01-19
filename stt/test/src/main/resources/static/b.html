@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <script src="jquery-3.0.0.min.js"></script>
+    <script>
+        function GetQueryString(name)
+        {
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
+            if(r!=null)return  unescape(r[2]); return null;
+        }
+
+        $(function () {
+
+            alert(GetQueryString("yws"));
+            alert(GetQueryString("huqin"));
+
+        });
+    </script>
+</head>
+
+<body>
+<h1>我的fsdf标题</h1>
+<a id="a">得瑟得瑟</a>
+</body>
+</html>
