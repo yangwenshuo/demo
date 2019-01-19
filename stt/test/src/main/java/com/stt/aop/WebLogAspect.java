@@ -21,6 +21,7 @@ import java.util.Enumeration;
 public class WebLogAspect {
 
 	//11111
+	///22222
 	private static Logger logger = Logger.getLogger(WebLogAspect.class);
 
 
