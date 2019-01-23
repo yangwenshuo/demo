@@ -20,18 +20,18 @@ import java.util.Enumeration;
 @Component
 public class WebLogAspect {
 
-	//11111
-	//2222222222
-	//33333333
+
 	private static Logger logger = Logger.getLogger(WebLogAspect.class);
 
-///fds
-	//这里定义一个切面
+
 	@Pointcut("execution(public * com.stt.controller..*.*(..))")
 	public void webLog() {
 	}
-
-
+	///fds
+	//这里定义一个切面
+	//11111
+	//2222222222
+	//33333333
 	//这里定义增强规则
 	@Before("webLog()")
 	public void doBefore(JoinPoint joinPoint) throws Throwable {
