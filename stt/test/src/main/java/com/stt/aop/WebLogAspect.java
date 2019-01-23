@@ -21,9 +21,10 @@ import java.util.Enumeration;
 public class WebLogAspect {
 
 	//11111
+	//2222222222
 	private static Logger logger = Logger.getLogger(WebLogAspect.class);
 
-
+///fds
 	//这里定义一个切面
 	@Pointcut("execution(public * com.stt.controller..*.*(..))")
 	public void webLog() {
