@@ -2,6 +2,13 @@ package com.interrpu;
 
 public class Client {
 	public static void main(String[] args) {
+
+		//如果你的线程在阻塞状态,外面调用了这个线程的
+		//interrupt()方法,那么你的线程就醒了,并且会有一个异常,如果
+		//异常被你catch住了就会走catch里面的代码,如果没有catch住,
+		//那么异常抛到了最外面线程就停止了
+
+
 		
 		//注意线程的停止看起来好像是用stop比较好,这个正好也是符合停止的
 		//但是这种挺停止,可能会线程嘎一下就停止,不管你现在跑到了那里,破坏了

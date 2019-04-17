@@ -13,6 +13,10 @@ public class ARunable implements Runnable{
 			System.out.println("大爷们都出来了 开黑去" + Thread.currentThread().getName());
 		}
 	});
+
+	//上面这个cyclicbarraier这个东西上面定义的时候我们后面跟上了一个
+	//回调的函数,这样的弄的话每线程集合一次就会执行一下这个,
+	//其实没必要弄
 	
 	int i = 0;
 	
@@ -23,7 +27,20 @@ public class ARunable implements Runnable{
 		System.out.println("本大爷进来啦" + Thread.currentThread().getName());
 		i++;
 		try {
+
+
+			//这个cyclicbarrier多次调用await()函数
+			//对函数的跑动多次进行整合才是
+			//这个东西的核心所在
+
+
 			cb.await();
+			System.out.println("本大爷又进来啦" + Thread.currentThread().getName());
+			cb.await();
+			System.out.println("222222222222222本大爷又进来啦" + Thread.currentThread().getName());
+			cb.await();
+
+
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

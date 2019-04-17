@@ -1,21 +1,26 @@
 package com.lock;
 
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class SynData {
 	
 	//lock要放在局部变量里
 	private ReentrantLock lock = new ReentrantLock();
-	
-	
+
+	//如果是lokc.lock()的话,你在外面调用thread.interrupted(),如果你
+	//没有获取到锁的话是不会响应你的interrrupted()函数的
+	//如果是lock.lockinterrupt()的话不管你获没获取锁都会响应你的interrupt()
+
+
+	//还有就是interrupt()这方法如果线程里没有sleep() join await()这种会阻塞的函数,线程就是正常的跑,
+	// 你在外面在怎么调用interrupt()函数也是没用的,也不会有异常产生,他这东西只是发了个信号
 	public void doSomeThingInterrupt() {
 		try {
 			lock.lockInterruptibly();
 		
 			for (; ;) {
-		
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}finally {

@@ -14,6 +14,8 @@ public class KuaiPai {
 		 */
 		int[] chi = { 2, 44, 5, 7, 65, 7, 12, 53, 19, 9, 10, 22, 4 };
 
+
+		//快排有三个参数 数组 low索引和high索引
 		kuaiPai(chi, 0, chi.length - 1);
 		System.out.println(Arrays.toString(chi));
 	}

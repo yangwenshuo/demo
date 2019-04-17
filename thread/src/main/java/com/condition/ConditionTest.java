@@ -7,7 +7,10 @@ public class ConditionTest {
 	private ReentrantLock rlock = new ReentrantLock();
 	private Condition c1 = rlock.newCondition();
 	private Condition c2 = rlock.newCondition();
-	
+
+
+//	Condition的方法是await()和signal()
+
 	public void doSomeThingc11() {
 		rlock.lock();
 		try {

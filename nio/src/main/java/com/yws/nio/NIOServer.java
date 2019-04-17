@@ -54,8 +54,9 @@ public class NIOServer {
 			//注意但select()方法不阻塞后,在调用selectedkeys方法就可以获得到有事件的
 			//selectkey了,这个就是标记一个个socketchannel的.
 			Iterator<SelectionKey> iterator = this.selector.selectedKeys().iterator();
-			
-			
+
+
+			//这里会得到一个selectionkey的集合,一个selectionkey标志一个socketchannel
 			
 			while (iterator.hasNext()) {
 				SelectionKey key = (SelectionKey) iterator.next();
@@ -152,6 +153,7 @@ public class NIOServer {
 
 	public static void main(String[] args) throws IOException {
 		NIOServer server = new NIOServer();
+		//先初始化,然后再listen
 		server.initServer(8000);
 		server.listen();
 	}

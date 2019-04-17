@@ -7,7 +7,9 @@ import java.util.concurrent.locks.ReentrantReadWriteLock.WriteLock;
 
 public class HuanCunData {
 	private HashMap<String, String> hashmap = new HashMap<>();
-	
+
+
+	//这行很重要
 	private ReentrantReadWriteLock rrw = new ReentrantReadWriteLock();
 	
 	private ReadLock readLock = rrw.readLock();

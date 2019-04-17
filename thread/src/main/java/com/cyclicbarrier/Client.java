@@ -5,6 +5,11 @@ import java.util.concurrent.Executors;
 
 public class Client {
 	public static void main(String[] args) {
+
+
+//		cyclicbarrier和countdownlatch的构造参数都是有一个数字的
+
+
 		ARunable ar = new ARunable();
 		
 		ExecutorService threadpool = Executors.newFixedThreadPool(5);

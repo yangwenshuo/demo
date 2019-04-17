@@ -11,7 +11,7 @@ public class ClientLockInterrupt {
 				// TODO Auto-generated method stub
 				try {
 					sd.doSomeThingInterrupt();
-				} catch (InterruptedException e) {
+				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
@@ -26,7 +26,7 @@ public class ClientLockInterrupt {
 				// TODO Auto-generated method stub
 				try {
 					sd.doSomeThingInterrupt();
-				} catch (InterruptedException e) {
+				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}

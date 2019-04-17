@@ -19,6 +19,7 @@ public class Atomtic {
 		
         User u = new User("杨过", "18", "男");
 		System.out.println(u);
+		//atomicReference和对象绑定就用atomicreference的构造变成那个对象
 		AtomicReference<User> yg = new AtomicReference<User>(u);
 		User u1 = yg.get();
 		

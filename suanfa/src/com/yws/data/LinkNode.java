@@ -13,14 +13,14 @@ public class LinkNode {
 
     public static LinkNode getLinkList() {
 
-        LinkNode linkNode = new LinkNode("杨过");
-        LinkNode linkNode1 = new LinkNode("赵信");
-        LinkNode linkNode2 = new LinkNode("盖伦");
-        LinkNode linkNode3 = new LinkNode("小龙女");
-        LinkNode linkNode4 = new LinkNode("杨逍");
-        LinkNode linkNode5 = new LinkNode("范谣");
-        LinkNode linkNode6 = new LinkNode("金毛狮王");
-        LinkNode linkNode7 = new LinkNode("文泰来");
+        LinkNode linkNode = new LinkNode("aa");
+        LinkNode linkNode1 = new LinkNode("bb");
+        LinkNode linkNode2 = new LinkNode("cc");
+        LinkNode linkNode3 = new LinkNode("dd");
+        LinkNode linkNode4 = new LinkNode("ff");
+        LinkNode linkNode5 = new LinkNode("gg");
+        LinkNode linkNode6 = new LinkNode("hh");
+        LinkNode linkNode7 = new LinkNode("ii");
 
         linkNode.next = linkNode1;
         linkNode1.next = linkNode2;
@@ -31,7 +31,7 @@ public class LinkNode {
         linkNode6.next = linkNode7;
         linkNode7.next = null;
 
-        return linkNode1;
+        return linkNode;
 
     }
 
