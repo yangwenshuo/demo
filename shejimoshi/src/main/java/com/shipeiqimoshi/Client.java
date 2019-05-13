@@ -3,6 +3,9 @@ package com.shipeiqimoshi;
 public class Client {
 
 	public static void main(String[] args) {
+
+
+
 		// TODO Auto-generated method stub
 		//应用场景:
 		//想要使用一个已经存在的类，但是它却不符合现有的接口规范，导致无法直接去访问，这时创建一个适配器就能间接去访问这个类中的方法。

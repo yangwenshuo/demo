@@ -1,9 +1,7 @@
 package com.yws.erchashubianli;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Queue;
-import java.util.Stack;
 import java.util.concurrent.ArrayBlockingQueue;
 
 public class Client {
@@ -133,7 +131,6 @@ public class Client {
             thisnum--;
 
          //   System.out.println(node.data);
-
 
 
             if (node.leftchild != null) {

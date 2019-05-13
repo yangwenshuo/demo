@@ -21,7 +21,9 @@ public class KuaiPai {
 	}
 
 	public static void kuaiPai(int[] chi, int low, int high) {
-		
+
+		//注意这里要备份下 highback和lowback
+		//注意temp要在最后弄,在中间的while里只是ch[low]=ch[high]和ch[high]=ch[low]
 		int lowbak = low;
 		int highbak = high;
 		
