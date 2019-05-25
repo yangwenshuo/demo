@@ -3,6 +3,10 @@ package sortdemo;
 import javax.sql.rowset.JdbcRowSet;
 
 public class ChaZhi {
+
+	////////啊啊啊
+	//dierciaag
+
 	//插值排序 的时间复杂度是n^2/4,而冒泡是n^2/2,选择是n^2/2，但是选择排序的交换次数比 冒泡排序少。
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
