@@ -1,6 +1,7 @@
 package com.yws.data;
 
 public class LinkNode {
+    //dsdsdsd
 
     public String value = null;
 
